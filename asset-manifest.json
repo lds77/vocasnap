@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/vocasnap/static/css/main.dd4037af.css",
-    "main.js": "/vocasnap/static/js/main.e23015ca.js",
+    "main.css": "/vocasnap/static/css/main.5fa9c1ad.css",
+    "main.js": "/vocasnap/static/js/main.3eae11bc.js",
     "index.html": "/vocasnap/index.html",
-    "main.dd4037af.css.map": "/vocasnap/static/css/main.dd4037af.css.map",
-    "main.e23015ca.js.map": "/vocasnap/static/js/main.e23015ca.js.map"
+    "main.5fa9c1ad.css.map": "/vocasnap/static/css/main.5fa9c1ad.css.map",
+    "main.3eae11bc.js.map": "/vocasnap/static/js/main.3eae11bc.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd4037af.css",
-    "static/js/main.e23015ca.js"
+    "static/css/main.5fa9c1ad.css",
+    "static/js/main.3eae11bc.js"
   ]
 }
