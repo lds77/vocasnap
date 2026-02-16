@@ -41,16 +41,23 @@
   };
   window.registerToGAS = async function(token, times) {
     try {
-      const url = "https://script.google.com/macros/s/AKfycbzt9Z3IGJGJbSCcLzVxLHQPZ8dpZc_-W0Ic0_8CtLk_FC5dmE1vpXskXpON2jERu4nVLA/exec";
+      window.registerToGAS = async function(token, times) {
+    try {
+      // 새로운 웹앱 URL로 교체되었습니다.
+      const url = "https://script.google.com/macros/s/AKfycbwZLkd4pLKIEBF3eyyw-sM-GSrX5MAT673Ih74UfRHPQ7D-IJo20Z9fwvT6xkk08IcJSw/exec";
       fetch(url + "?action=register&token=" + encodeURIComponent(token) + "&times=" + encodeURIComponent(times), { mode: "no-cors" });
-      console.log("GAS 등록:", times);
+      console.log("GAS 등록 요청:", times);
     } catch(e) { console.log("GAS error:", e); }
   };
+
   window.unregisterFromGAS = async function(token) {
     try {
-      const url = "https://script.google.com/macros/s/AKfycbzt9Z3IGJGJbSCcLzVxLHQPZ8dpZc_-W0Ic0_8CtLk_FC5dmE1vpXskXpON2jERu4nVLA/exec";
+      // 여기도 새로운 웹앱 URL로 교체되었습니다.
+      const url = "https://script.google.com/macros/s/AKfycbwZLkd4pLKIEBF3eyyw-sM-GSrX5MAT673Ih74UfRHPQ7D-IJo20Z9fwvT6xkk08IcJSw/exec";
       fetch(url + "?action=unregister&token=" + encodeURIComponent(token), { mode: "no-cors" });
-      console.log("GAS 해제");
+      console.log("GAS 해제 요청");
+    } catch(e) { console.log("GAS error:", e); }
+  };
     } catch(e) {}
   };
   if (Notification.permission === "granted") {
