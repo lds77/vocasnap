@@ -44,4 +44,44 @@
       if (r && r.token) console.log("FCM token refreshed");
     });
   }
-</script></body></html>
+  // --- 구글 알림 서버 연결 코드 시작 ---
+const GAS_URL = "https://script.google.com/macros/s/AKfycbzt9Z3IGJGJbSCcLzVxLHQPZ8dpZc_-W0Ic0_8CtLk_FC5dmE1vpXskXpON2jERu4nVLA/exec";
+
+async function saveAlarmTime() {
+    const timeInput = document.getElementById('alarmTime').value;
+    
+    if (!timeInput) {
+        alert("알림을 받을 시간을 먼저 선택해주세요!");
+        return;
+    }
+
+    // 현재 기기의 토큰을 가져옵니다. 
+    // (이미 발급받아둔 모바일 토큰을 우선 사용합니다)
+    const currentToken = "fAtmiO0Cwx5rsuPsdv2-zN:APA91bEYEiJHxQeKrNUkDV-BXfFsGTGML0D6cpbTH964qw5aKPDKv2bkbKOPrQ3jg4auXnFNqqlYXPaLnrG1TKk3EqYxfeC2oMwHFiMxBOAKT5ObNaxsWUM";
+
+    const finalUrl = `${GAS_URL}?time=${timeInput}&token=${currentToken}`;
+
+    // 구글 서버로 전송
+    fetch(finalUrl, { mode: 'no-cors' })
+    .then(() => {
+        alert("✅ " + timeInput + "분에 알림 예약이 완료되었습니다!");
+    })
+    .catch(err => {
+        console.error("저장 실패:", err);
+        alert("서버 연결에 실패했습니다.");
+    });
+}
+// --- 구글 알림 서버 연결 코드 끝 ---
+</script>
+<div id="alarm-setting" style="margin: 20px; padding: 20px; border: 1px solid #ddd; border-radius: 12px; background-color: #f9f9f9; text-align: center;">
+  <h3 style="margin-top:0;">⏰ 복습 알림 예약</h3>
+  <p style="font-size: 0.9em; color: #666;">매일 정해진 시간에 단어 복습 알림을 보내드려요.</p>
+  
+  <input type="time" id="alarmTime" style="padding: 10px; font-size: 1.1em; border-radius: 8px; border: 1px solid #ccc;">
+  
+  <button onclick="saveAlarmTime()" style="padding: 10px 20px; font-size: 1.1em; background-color: #4f6ef7; color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; width: 100%;">
+    이 시간에 알림 받기
+  </button>
+</div>
+</body>
+</html>
